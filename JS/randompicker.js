@@ -24,5 +24,3 @@ const readWrite = (path,nama) => {
 
   fs.writeFileSync('./randomized.json', JSON.stringify(newData));
 }
-
-readWrite();
