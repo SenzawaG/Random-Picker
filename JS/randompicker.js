@@ -1,26 +1,31 @@
-import fs     from 'fs';
-// import member   from 'member';
-import member from 'kelas2A';
+const inpRan = document.getElementById('inpRan');
+const inpFix = document.getElementById('inpFix');
+let   memRan = [];
+let   memFix = [];
+let   backSp =  0;
 
-let absen,
-    kelompok,
-    mhasiswa;
+const memAdd = (input,target) => {
+  const memory = input.value;
+  let    index = 0;
+        target = [];
 
-for (i = 0; i < kelompok; i++) {
-  do    {absen = Math.random(0)*100;} 
-  while (absen > klm.length);
-
-  absen = Math.floor(absen);
-  mhasiswa--;
-  if (mhasiswa == 0) mhasiswa = fix.length;
+  for ( i = 0; i < memory.length; i++) {
+    if (target[index] == undefined) target[index] = "";
+    if (memory[i] != '\n')          target[index] += memory[i];
+    else index++;
+  }
+  return target;
 }
 
-const readWrite = (path,nama) => {
-  const oldData = fs.readFileSync(`${path}.json`, 'utf-8');
-  const newData = JSON.parse(oldData);
-  const tmpData = {nama};
+inpRan.addEventListener('input', async()=> {
+  memRan = memAdd(inpRan,memRan);
+});
+inpFix.addEventListener('input', async()=> {
+  memFix = memAdd(inpFix,memFix);
+});
 
-  newData.push(tmpData);
-
-  fs.writeFileSync('./randomized.json', JSON.stringify(newData));
-}
+// const query_json = (path) => {
+//   $.getJSON(`${path}.json`, (data)=> {
+//     console.log(data.member);
+//   })
+// } 
